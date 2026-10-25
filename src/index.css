@@ -1,0 +1,21 @@
+@import '@fontsource-variable/inter';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-slate-50 text-slate-800 antialiased; }
+  :focus-visible { @apply outline-none ring-2 ring-teal-500 ring-offset-2 ring-offset-white; }
+}
+@layer components {
+  .card { @apply rounded-xl border border-slate-200 bg-white shadow-card; }
+  .card-pad { @apply p-5 sm:p-6; }
+  .h-section { @apply text-lg font-semibold tracking-tight text-slate-900; }
+  .input { @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm transition placeholder:text-slate-400 hover:border-slate-400 focus:border-teal-600 focus:ring-2 focus:ring-teal-500/30; }
+  .input-error { @apply border-rose-400 bg-rose-50/40 focus:border-rose-500 focus:ring-rose-500/30; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition; }
+  .btn-primary { @apply btn bg-teal-600 text-white shadow-sm hover:bg-teal-700; }
+  .btn-ghost { @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
