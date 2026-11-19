@@ -15,7 +15,5 @@ npm test           # checks the scoring function (additivity, validation)
 ## Important
 * The score is a **hand-specified illustrative formula** (`src/lib/model.js`). Its weights are not estimated from data and
   are not exported from a trained model. Edit `FEATURES[].f` there only if you intend to change the demonstration.
-* **Model performance tables are empty on purpose.** No results were supplied. Enter your measured Chapter 4 values in
-  `src/data/metrics.js` (and set `REPORT.selectedModel`, `threshold`, `note`); the tab updates automatically and any
-  value left as `null` is shown as "Not yet reported".
+* **Model performance tables hold measured values.** The numbers in `src/data/metrics.js` come from the research pipeline (`run_experiment.py`, thesis Chapter 5) and are rounded to three decimals. They describe the benchmark models on 61 held-out patients, not the illustrative score on the Assessment tab. The SVM has no uncalibrated probability, so that cell reads "Not yet reported".
 * No network calls, cookies, local storage or analytics are used; inputs stay in browser memory.
