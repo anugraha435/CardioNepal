@@ -82,7 +82,7 @@ export function ModelInfo() {
       </section>
 
       <section aria-labelledby="perf-title" className="card card-pad">
-        <SectionTitle icon={BarChart3} title="Model performance (thesis Chapter 4)">
+        <SectionTitle icon={BarChart3} title="Model performance (thesis Chapter 5)">
           <span id="perf-title">Held-out test set of {REPORT.testSetSize} patients; positive class = heart disease present.</span>
         </SectionTitle>
         {!anyReported && (
