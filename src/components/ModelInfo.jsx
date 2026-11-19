@@ -4,7 +4,7 @@ import { FEATURES } from '../lib/model.js';
 import { METRICS, REPORT } from '../data/metrics.js';
 import { SectionTitle, Pill } from './ui.jsx';
 
-const fmt = (v) => (v === null || v === undefined ? null : Number(v).toFixed(3));
+const fmt = (v) => (v === null || v === undefined ? null : typeof v === 'string' ? v : Number(v).toFixed(3));
 const Cell = ({ v }) => (fmt(v) ? <span className="tabular-nums text-slate-900">{fmt(v)}</span> : <span className="text-xs text-slate-400">Not yet reported</span>);
 
 function MetricsTable({ caption, cols }) {
@@ -104,7 +104,7 @@ export function ModelInfo() {
         </div>
         <dl className="mt-4 grid gap-3 text-sm sm:grid-cols-3">
           <div className="rounded-lg bg-slate-50 p-3"><dt className="text-xs text-slate-500">Decision threshold</dt><dd className="font-semibold text-slate-900">{REPORT.threshold ?? 'Not yet reported'}</dd></div>
-          <div className="rounded-lg bg-slate-50 p-3"><dt className="text-xs text-slate-500">Selected model</dt><dd className="font-semibold text-slate-900">{METRICS.find((m) => m.id === REPORT.selectedModel)?.name ?? 'Not yet reported'}</dd></div>
+          <div className="rounded-lg bg-slate-50 p-3"><dt className="text-xs text-slate-500">Selected model</dt><dd className="font-semibold text-slate-900">{METRICS.find((m) => m.id === REPORT.selectedModel)?.name ?? 'None (models not distinguishable)'}</dd></div>
           <div className="rounded-lg bg-slate-50 p-3"><dt className="text-xs text-slate-500">Test-set size</dt><dd className="font-semibold text-slate-900">{REPORT.testSetSize}</dd></div>
         </dl>
         {REPORT.note && <p className="mt-3 text-xs text-slate-500">{REPORT.note}</p>}
